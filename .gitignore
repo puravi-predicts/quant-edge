@@ -1,0 +1,10 @@
+# Python bytecode cache 
+**/__pycache__/
+**/*.pyc
+
+# Local tracking databases and logs
+*.db
+*.log
+
+# VS Code environment configuration files
+.vscode/
