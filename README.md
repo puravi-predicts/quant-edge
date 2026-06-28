@@ -12,6 +12,11 @@
 
 ---
 
+## 📺 Project Demo
+<video src="https://github.com/user-attachments/assets/d3ad89e5-4515-43b9-9e9e-25d0408c8b0a" width="100%" controls autoplay muted loop></video>
+
+---
+
 ## What This Demonstrates
 
 This is a **production-quality** data science portfolio project built with
@@ -76,15 +81,15 @@ understanding in an interview signals DS maturity that most candidates lack.
 
 ```
                          ┌─────────────────────────────────┐
-                         │        Yahoo Finance API         │
+                         │        Yahoo Finance API        │
                          │     10 stocks × 3 years OHLCV   │
                          └──────────────┬──────────────────┘
                                         │
                          ┌──────────────▼──────────────────┐
-                         │      data/pipeline.py            │
-                         │  19 features engineered          │
-                         │  Chronological 80/20 split       │
-                         │  Scaler fit on TRAIN only        │
+                         │      data/pipeline.py           │
+                         │  19 features engineered         │
+                         │  Chronological 80/20 split      │
+                         │  Scaler fit on TRAIN only       │
                          └──┬──────────────────────────┬───┘
                             │                          │
            ┌────────────────▼────┐         ┌──────────▼────────────┐
@@ -109,18 +114,18 @@ understanding in an interview signals DS maturity that most candidates lack.
            └────────────┬────────┘
                         │
            ┌────────────▼────────────────────────────┐
-           │        mlflow_tracking/experiments       │
-           │  Log params, metrics, model artifacts    │
+           │        mlflow_tracking/experiments      │
+           │  Log params, metrics, model artifacts   │
            └────────────┬────────────────────────────┘
                         │
            ┌────────────▼────────────────────────────┐
-           │              app.py (Streamlit)          │
-           │  Tab 1: Live Signal + Regime + Vol       │
-           │  Tab 2: Model comparison + ROC + CM      │
-           │  Tab 3: Feature importance + insights    │
-           │  Tab 4: Equity curve + monthly heatmap   │
+           │              app.py (Streamlit)         │
+           │  Tab 1: Live Signal + Regime + Vol      │
+           │  Tab 2: Model comparison + ROC + CM     │
+           │  Tab 3: Feature importance + insights   │
+           │  Tab 4: Equity curve + monthly heatmap  │
            │  Tab 5: VaR / CVaR / GARCH diagnostics  │
-           │  Tab 6: MLflow experiment browser        │
+           │  Tab 6: MLflow experiment browser       │
            └─────────────────────────────────────────┘
 ```
 
@@ -243,24 +248,6 @@ quantedge/
 7. **GARCH on log returns × 100** — not raw prices
 8. **LSTM only for regime classification** — not forecasting
 9. **Every chart has title, axis labels, data source**
-
----
-
-## Interview Talking Points
-
-When a recruiter at **Deloitte, KPMG, JPMorgan, Accenture, or EY** asks:
-
-**"Why not use LSTM to predict prices?"**
-→ Explain the random walk argument. Show the LSTM is used for regime detection — a classification task with genuine signal. This demonstrates theoretical understanding, not just tool usage.
-
-**"How did you prevent data leakage?"**
-→ Chronological split, scaler fit on train only, no target peeking. Point to the code in `pipeline.py`.
-
-**"How do you know the model actually works?"**
-→ Test-set-only metrics. Backtest on held-out data. Statistical comparison against random baseline. Rolling accuracy stability chart.
-
-**"How would you deploy this in production?"**
-→ MLflow model registry, containerize with Docker, serve via FastAPI, automate retraining with Airflow. MLflow is already integrated here as a starting point.
 
 ---
 
