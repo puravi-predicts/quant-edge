@@ -1,6 +1,10 @@
-# Python bytecode cache 
+# Python bytecode cache
 **/__pycache__/
 **/*.pyc
+
+# MLflow local tracking runs & local ML pipeline outputs
+mlruns/
+ml_pipeline/
 
 # Local tracking databases and logs
 *.db
